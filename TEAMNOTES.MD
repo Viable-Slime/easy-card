@@ -77,6 +77,19 @@ These are dedicated status check-ins as this is a multi-week project
 - design considerations: able to contain any html content, padding, margin,overflow, text wrap, background color, text color,
 - state: expanded state, contracted state
 
+
+#### Next Steps:
+- Assign roles 
+- get working on base parts of the card header and body
+- create foundation for each element
+
+#### Roles:
+
+- Sean Brill whole card as an element
+- Michael Whang Icon element
+- Neel Ghosh Header element
+- Nick Hunter Body element
+
 ### Check-in 2
 - 
 - 
