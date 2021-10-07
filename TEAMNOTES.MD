@@ -59,27 +59,24 @@ These are dedicated status check-ins as this is a multi-week project
 ## Check-in 1
 
 #### Whole card = slime-card
-design considerations: shape size, supports the sub elements, position, type
-states: disabled, expanded, contracted
+- design considerations: shape size, supports the sub elements, position, type
+- states: disabled, expanded, contracted
 
 
 #### Top portion of card = slime-heading
-design considerations: color, font,font-size, language, margin, padding, overflow, text wrap
+- design considerations: color, font,font-size, language, margin, padding, overflow, text wrap
 
 
 #### Icon part = slime-icon
-design considerations: 
-size, color, border, contrast, margin, padding
-state: hover, click, tabbed
+- design considerations: 
+- size, color, border, contrast, margin, padding
+- state: hover, click, tabbed
 
 
 #### Body = slime-content
-design considerations: able to contain any html content, padding, margin,overflow, text wrap, background color, text color,
-state: expanded state, contracted state
+- design considerations: able to contain any html content, padding, margin,overflow, text wrap, background color, text color,
+- state: expanded state, contracted state
 
-
-- 
-- 
 ### Check-in 2
 - 
 - 
