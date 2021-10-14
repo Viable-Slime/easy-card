@@ -90,9 +90,16 @@ These are dedicated status check-ins as this is a multi-week project
 - Neel Ghosh Header element
 - Nick Hunter Body element
 
+## Teams peer review
+- Talked about the structure of the project seperating the card into different elements
+- Talked about trickeling properties from the top element down to the lowest element
+- Talked about importing SimpleColors
+- Talked about operation observer
+
+
 ### Check-in 2
 - 
-- 
+- Help
 ### Check-in 3
 - 
 - 
