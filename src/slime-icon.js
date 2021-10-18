@@ -17,7 +17,9 @@ export class SlimeIcon extends SimpleColors {
       css`
         :host{
         display: block;
-        background-color var (--simple-colors-default-theme-accent-8,#0000000);
+        height: var(--icon-scale,inherit);
+        width: var(--icon-scale,inherit);
+        position: absolute;
         }
       `
   ];
@@ -29,23 +31,28 @@ export class SlimeIcon extends SimpleColors {
   static get properties() {
     return {
       type: { type: String, reflect: true },
-      myIcon: { type: String, attribute: "my-icon" },
-      icon_value: {type: Map}
+      icon_value: {type: Map},
+      iconScale: {type: String, attribute:"icon-scale", reflect: true},
+      bgColor: {type: String, attribute:"bg-color",reflect:true}
       
     };
   }
 
 
-  
+
   constructor() {
     super();
-    this.myIcon;
     this.type = "math";
+    this.iconScale = "inherit";
     this.icon_value = new Map(); 
     this.icon_value.set("math",lightbulb);
     this.icon_value.set("science",beaker);
     this.icon_value.set("question",question);
+    this.bgColor = "grey";
+    this.style.backgroundColor = "var(--simple-colors-default-theme-"+this.bgColor +"-6)";
 }
+
+
 
   // properties that you wish to use as data in HTML, CSS, and the updated life-cycle
   // updated fires every time a property defined above changes
@@ -55,6 +62,8 @@ export class SlimeIcon extends SimpleColors {
       if (propName === "type" && this[propName] === "science") {
         this.myIcon = "beaker";
       }
+      this.style.setProperty("--icon-scale", this.iconScale);
+      this.style.backgroundColor = "var(--simple-colors-default-theme-"+this.bgColor +"-6)";
     });
   }
 
@@ -66,6 +75,8 @@ export class SlimeIcon extends SimpleColors {
   firstUpdated(changedProperties) {
     if (super.firstUpdated) {
       super.firstUpdated(changedProperties);
+      this.style.setProperty("--icon-scale", this.iconScale);
+      this.style.backgroundColor = "var(--simple-colors-default-theme-"+this.bgColor +"-6)";
     }
   }
 
@@ -93,9 +104,11 @@ export class SlimeIcon extends SimpleColors {
 
   // HTML - specific to Lit
   render() {
+    console.log(this.bgColor);
     return html` 
     <div id="slime-icon-container">
-    <slot><img part="icon" src="${this.icon_value.get(this.type)}" alt="learning card icon"></slot>
+    <img part="icon" src="${this.icon_value.get(this.type)}"  alt="learning card icon">
+    
     </div> `;
 
 
