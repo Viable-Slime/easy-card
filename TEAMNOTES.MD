@@ -98,8 +98,13 @@ These are dedicated status check-ins as this is a multi-week project
 
 
 ### Check-in 2
-- 
-- Help
+- Sean worked on icon and header elements that are now working together. 
+- #### Slime Icon
+-  Slime Icon will take a property name such as "science" and update the icon to match the specified property. At the current moment there is only a science property name which is a beaker icon. The icon also has the ability to scale to adjust for the size of the header element, and background color is set to transparent when it is used in the header so that just the icon itself is visible.
+-  #### Slime Header
+-  The header contains header and sub-header text that are centered to the header's dimensions. The icon element is imported to the header, and is able to be added to the page as displayed in the card demo. 
+-  ####Next Steps:
+-  We will be focusing next on the content element which will contain a list. Additionally, there are plans to add more property names so that the icons can be updated to show other topics rather than just science.
 ### Check-in 3
 - 
 - 
