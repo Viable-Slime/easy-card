@@ -86,7 +86,7 @@ export class LearningCard extends LitElement {
         <slot name="header"></slot>
       </div>
       <img part="icon" src="${beaker}" alt=""/>
-      <img part="icon" src="${lightbulb}" />
+      <img part="icon" src="${lightbulb}" alt=""/>
       <img part="icon" src="${question}" alt=""/>
       <div class="slot-wrapper" data-label="Content" data-layout-slotname="content">
         <slot name="content"></slot>
@@ -100,6 +100,8 @@ export class LearningCard extends LitElement {
   /**
    * haxProperties integration via file reference
    */
+
+  
    static get haxProperties() {
     return {
       canScale: false,
