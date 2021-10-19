@@ -105,6 +105,35 @@ These are dedicated status check-ins as this is a multi-week project
 -  The header contains header and sub-header text that are centered to the header's dimensions. The icon element is imported to the header, and is able to be added to the page as displayed in the card demo. 
 -  ####Next Steps:
 -  We will be focusing next on the content element which will contain a list. Additionally, there are plans to add more property names so that the icons can be updated to show other topics rather than just science.
+
+
+## Week 9 teamnotes classroom update:
+
+### How we will leverage what we learned from chuck.
+- Mobile responisveness @media screen and max width queries
+- Variables for attributes
+- Can possibly implement rendering funciton as long as we pass back html
+- Using vh and vw variables rather than fixed px ratios for sizing
+
+### What we can leverage from other classmates:
+-Usage if the slot to pass data down
+-Accent color as property use ...super in properties
+-use dynamic imports to imporve performance
+- Possible implementation of the details tag for popput content
+
+### Updates from professor:
+-Find a new way to manage size height and width
+- new way to manage icon size
+- better way to use simple-colors
+- manage contrast ratios
+
+### Next steps:
+- start on body abd full card implementations
+- make revisions based on what we learned today and feedback from the professor
+
+
+
+
 ### Check-in 3
 - 
 - 
