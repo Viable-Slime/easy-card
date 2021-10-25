@@ -49,6 +49,31 @@
     margin-bottom: 100px;
 
     }
+
+    #one{
+
+      background-color: gray;
+    }
+
+    #two{
+    width: 500px;
+
+    }
+
+    #three{
+
+      width: 500px;
+    }
+
+    #four{
+
+      width: 500px;
+      margin-bottom: 150px;
+
+    }
+
+    
+
   </style>
   <title>Project two: learning card</title>
 </head>
@@ -60,18 +85,73 @@
   </ul>
   <div class="wrapper">
 
-    <div class="element-showcase">
+    <h1>Slime Icon: </h1>
+    <div class="element-showcase" id="one">
 
-      <h1>Slime Icon: </h1>
+      
       <slime-icon type="math"></slime-icon>
       
     </div>
     
 
-    <div class="element-showcase">
+    <div class="element-showcase" id="two">
 
       <h1>Slime Header: </h1>
-      <slime-header height="75px" color="blue" width="400px" type="science" icon-scale="70px"></slime-header>
+      <slime-header  accent-color="blue" type="science"></slime-header>
+      
+    </div>
+
+
+
+    <div class="element-showcase">
+
+      <h1>Slime body: </h1>
+      <slime-body type="math">
+          <ul>
+            <li>li one</li>
+            <li>li two</li>
+            <li>li three</li>
+            <li>li four</li>
+          </ul>
+      </slime-body>
+    </div>
+    
+
+    <div class="element-showcase" id="four">
+
+      <h1>Slime card: </h1>
+      
+      <slime-card accent-color="orange" type="question" heading="Unit1" sub-heading="Science">
+
+        <ul>
+          <li>li one</li>
+          <li>li two</li>
+          <li>li three</li>
+          <li>li four</li>
+        </ul>
+
+        
+      </slime-card>
+
+    </div>
+
+
+
+    <div class="element-showcase" id="three">
+
+      <h1>Slime card with toggle: </h1>
+      
+      <slime-card accent-color="red" toggle type="science" heading="Unit1" sub-heading="Science">
+
+        <ul>
+          <li>li one</li>
+          <li>li two</li>
+          <li>li three</li>
+          <li>li four</li>
+        </ul>
+
+        
+      </slime-card>
 
     </div>
 
