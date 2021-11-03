@@ -135,8 +135,19 @@ These are dedicated status check-ins as this is a multi-week project
 
 
 ### Check-in 3
-- 
-- 
+#### Where We Are
+-   After some issues getting our body element to display on the page, we discovered that we weren't importing LitElement and we were able to successfully get our body to render on the page. From there we were able to construct the card with all our elements (Header, Icon, Body). We also added a feature that will display the body content if the banner is clicked, and contract if clicked again. We are in the process of setting up the card scaffold, but as of right now we have not implemented it. We are also looking for a meaningful way to implement our button into the card.
+#### Next Steps
+-   Card scaffold implementation
+-   Incorporate our easy-button in meaningful way (initial thought: use the easy-button to apply a CSS effect to the card to mark completion of reading the content)
+-   More styling of header information
+-   Begin working on storybook for each of our elements
+-   We will consider implementing feedback provided during class this week
 ### Check-in 4
-- 
-- 
+ #### Where We Are
+ - We are currently in a good spot with our card, and have incorporated our button into the card as well. We are now focusing on solving some issues with the card functionality, making sure we have all the requirements specified in the rubric, and have to complete the storybook for our card. We are on track to have our completed card ready to submit by Tuesday evening.
+ #### Next Steps Before Submission
+ - Fix issue with the expand card functionality. It is currently collapsing the card when the user clicks anywhere in the button (we don't want this to happen if they click in the body element).
+ - Start and complete the storybook for our card.
+ - Check rubric to ensure we are meeting all the requirements.
+ - Adjust some of the CSS to get the card looking as close as possible to the original.
