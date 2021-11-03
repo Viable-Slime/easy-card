@@ -1460,7 +1460,7 @@
     "@lrnwebcomponents/simple-colors" "^2.8.0"
     "lit-element" "2.4.0"
 
-"@lrnwebcomponents/simple-icon@^4.0.1":
+"@lrnwebcomponents/simple-icon@^4.0.0", "@lrnwebcomponents/simple-icon@^4.0.1":
   "integrity" "sha512-DXUhS5w3wJilhcPeRMHhT30njaNlagqAA6C1BVF+cxJmKlOQbE52C/1tDODW9AetQEXfAXBOkXic1Gy1BR7C/g=="
   "resolved" "https://registry.npmjs.org/@lrnwebcomponents/simple-icon/-/simple-icon-4.0.1.tgz"
   "version" "4.0.1"
@@ -2431,6 +2431,14 @@
   "version" "2.1.0"
   dependencies:
     "@vaadin/vaadin-development-mode-detector" "^2.0.0"
+
+"@viable-slime/the-easy-button@^0.0.2":
+  "integrity" "sha512-Rr45M6jScjPgh6l50T+dOuSZBjWzD07BxZpgQaf/3ryXSvLIBNhVUL70dDviuhsDoh3U4YQhvzhdWAuurJe77A=="
+  "resolved" "https://registry.npmjs.org/@viable-slime/the-easy-button/-/the-easy-button-0.0.2.tgz"
+  "version" "0.0.2"
+  dependencies:
+    "@lrnwebcomponents/simple-icon" "^4.0.0"
+    "lit" "^2.0.0-rc.4"
 
 "@web/browser-logs@^0.2.1", "@web/browser-logs@^0.2.2":
   "integrity" "sha512-Qxo1wY/L7yILQqg0jjAaueh+tzdORXnZtxQgWH23SsTCunz9iq9FvsZa8Q5XlpjnZ3vLIsFEuEsCMqFeohJnEg=="
@@ -5399,7 +5407,7 @@
   dependencies:
     "@types/trusted-types" "^2.0.2"
 
-"lit@^2.0.0", "lit@^2.0.0-rc.2", "lit@2.0.0":
+"lit@^2.0.0", "lit@^2.0.0-rc.2", "lit@^2.0.0-rc.4", "lit@2.0.0":
   "integrity" "sha512-pqi5O/wVzQ9Bn4ERRoYQlt1EAUWyY5Wv888vzpoArbtChc+zfUv1XohRqSdtQZYCogl0eHKd+MQwymg2XJfECg=="
   "resolved" "https://registry.npmjs.org/lit/-/lit-2.0.0.tgz"
   "version" "2.0.0"

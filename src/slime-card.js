@@ -1,37 +1,31 @@
-// dependencies / things imported
 import {css,html, LitElement} from 'lit';
-import { SlimeHeader } from './slime-header';
-import { SlimeBody } from './slime-body';
-
-
+import {SlimeHeader} from './slime-header';
+import {SlimeBody} from './slime-body';
 
 export class SlimeCard extends LitElement {
   static get tag() {
     return "slime-card";
   }
 
-
-  // CSS - specific to Lit
     static get styles() {
     return css`
         :host{
             display:block;
             height: inherit;
             width: inherit;
-        
             }
-
-        :host([toggle]) .slime-card-bottom{
-            transition: max-height 0.75s linear 0s;
-            max-height: var(--slime-card-bottom, 0);
-            height: auto;
-            overflow: hidden;
+        .header{
+          font-size: var(--header-font-size,30px); 
         }
-        
+        :host([shadow]){
+          box-shadow: 0px 0px 5px 0px black;
+        }
+            .slime-card-bottom{
+              border-top:none;
+              font-size: var(--body-font-size,20px);
+            }
       `;
   }
-
-
 
   static get properties() {
     return {...super.properties,
@@ -43,12 +37,9 @@ export class SlimeCard extends LitElement {
       heading: {type: String, attribute:"heading", reflect: true},
       subHeading: {type: String, attribute:"sub-heading", reflect: true},
       toggle: {type: Boolean},
-      expanded: {type: Boolean}
-     
+      bodyTabIndex: {type: Number}
     };
   }
-
-
 
   constructor() {
     super();
@@ -59,97 +50,73 @@ export class SlimeCard extends LitElement {
     this.subHeading = "sub heading";
     this.accentColor = "grey";
     this.toggle = false;
-    this.expanded = false;
+    this.bodyTabIndex = -1;
     
 }
 
-
-
-    expand(){
-        console.log("expand");
-        this.removeEventListener('click',this.expand);
-        this.addEventListener('click',this.contract);
-        this.expanded = true;
-        this.style.setProperty('--slime-card-bottom',"1000px");
+  extend(){
+    this.toggle = !this.toggle;
+    if(this.toggle){
+      //card expanded
+      this.bodyTabIndex = 0;
+      this.parentNode.children[1].style.setProperty("--body-max-height",'1000px');
+      this.parentNode.children[1].style.setProperty("--body-padding",'2%');
+      this.parentNode.children[1].style.setProperty("--body-bottom-border",'solid 1px');
+    }else{
+      //card closed
+      this.bodyTabIndex = -1;
+      this.parentNode.children[1].style.setProperty("--body-max-height",'0px');
+      setTimeout(()=>{    
+        this.parentNode.children[1].style.setProperty("--body-padding",'0%');    
+        this.parentNode.children[1].style.setProperty("--body-bottom-border",'none');
+      },300);
     }
-
-    contract(){
-        console.log("contract");
-        this.removeEventListener('click',this.contract);
-        this.addEventListener('click',this.expand);
-        this.expanded = false;
-        this.style.setProperty('--slime-card-bottom',"0px");
-        
-    }
-
-
-
-  // properties that you wish to use as data in HTML, CSS, and the updated life-cycle
-  // updated fires every time a property defined above changes
-  // this allows you to react to variables changing and use javascript to perform logic
-  updated(changedProperties) {
-    changedProperties.forEach((oldValue, propName) => {
-      if (propName === "type" && this[propName] === "science") {
-        this.myIcon = "beaker";
-      }
-
-      
-        if(this.toggle==true && this.expanded==false){
-            this.addEventListener('click',this.expand);
-        }
-
-        if(this.toggle==true && this.expanded==true){
-            this.addEventListener('click',this.contract);
-        }
-            
-        
-
-    });
+  
   }
 
+  accessibleExtend(event){
+      if(event.key=='Enter'){
+        //pase extend method here
+        this.toggle = !this.toggle;
+        if(this.toggle){
+          //card expanded
+          this.parentNode.children[1].style.setProperty("--body-max-height",'1000px');
+          this.parentNode.children[1].style.setProperty("--body-padding",'2%');
+          this.parentNode.children[1].style.setProperty("--body-bottom-border",'solid 1px');
+       }else{
+          //card closed
+          this.parentNode.children[1].style.setProperty("--body-max-height",'0px');
+          setTimeout(()=>{
+          this.parentNode.children[1].style.setProperty("--body-padding",'0%');        
+          this.parentNode.children[1].style.setProperty("--body-bottom-border",'none');
+      },300);
+      }
+    }
+  }
 
   // Lit life-cycle; this fires the 1st time the element is rendered on the screen
   // this is a sign it is safe to make calls to this.shadowRoot
-  firstUpdated(changedProperties) {
+  firstUpdated(changedProperties){
     if (super.firstUpdated) {
-
-        /*
-      super.firstUpdated(changedProperties);
-      
-
-      if(this.toggle && this.expanded==false){
-        this.addEventListener('click',this.expand());
-    }
-
-    if(this.toggle && this.expanded==true){
-        this.addEventListener('click',this.contract());
-    }
-
-    */
- 
-    }
-    
+      var element = this;
+      if(this.toggle){this.shadowRoot.getElementById("click-target").addEventListener('click',this.extend);}
+      if(this.toggle){this.shadowRoot.getElementById("click-target").addEventListener('keypress',this.accessibleExtend);}
   }
+}
 
 
 
   // HTML - specific to Lit
   render() {
+
+    console.log(this.bodyTabIndex);
     return html` 
         <div class="slime-card-container">
-            <div class="slime-card-top"><slime-header toggle="${this.toggle}" type="${this.type}" heading="${this.heading}" sub-heading="${this.subHeading}" accent-color="${this.accentColor}"></slime-header></div>
-            <div class="slime-card-bottom"><slime-body style="border-top:none;"><slot></slot></slime-body></div>
+        <div id="click-target" tabindex="0">
+        <slime-header class="header" toggle="${this.toggle}" type="${this.type}" heading="${this.heading}" sub-heading="${this.subHeading}" accent-color="${this.accentColor}"></slime-header>
         </div>
-     `;
+        <slime-body tabindex="${this.bodyTabIndex}" id="expand-target" class="slime-card-bottom" toggle="${this.toggle}"><slot></slot></slime-body>
+        </div>`;
   }
-
-
-
-
-
-
-
-  }
-
-
+}
 

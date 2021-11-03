@@ -24,6 +24,7 @@ export class SlimeHeader extends SimpleColors {
         border-width: 1px;
         background-color: var(--simple-colors-default-theme-accent-6,black);
         overflow: hidden;
+        white-space: nowrap;
         }
         .header-content{
             display: flex;
@@ -38,12 +39,17 @@ export class SlimeHeader extends SimpleColors {
             flex-direction: column;
             justify-content: center;
             color: white;
-            font-size: var(--heading-font-size,30px);
+           
         }
         h2{margin:1px;}
         h3{margin:1px;}
         
-        :host([toggle=true]) .header-icon:hover{cursor:pointer}       
+        :host([toggle=true]) .header-content:hover{
+          
+          cursor:pointer;
+          filter: brightness(80%);
+        
+        }       
         }
       `];
   }
@@ -59,10 +65,10 @@ export class SlimeHeader extends SimpleColors {
       heading: {type: String, reflect: true},
       subHeading: {type: String, attribute:"sub-heading", reflect: true},
       fontSize: {type: String, attribute:"font-size"},
-      toggle: {type: Boolean}
+      toggle: {type: Boolean},
+      expanded: {type: Boolean}
     };
   }
-
 
 
   constructor() {
@@ -75,9 +81,9 @@ export class SlimeHeader extends SimpleColors {
     this.accentColor = "grey";
     this.fontSize = "30px";
     this.toggle=false;
+    this.expanded = false;
     
 }
-
 
 
   // properties that you wish to use as data in HTML, CSS, and the updated life-cycle
@@ -86,9 +92,9 @@ export class SlimeHeader extends SimpleColors {
   updated(changedProperties) {
     changedProperties.forEach((oldValue, propName) => {
       if (propName === "type" && this[propName] === "science") {
+        this.style.setProperty("--heading-font-size",this.fontSize);
         this.myIcon = "beaker";
       }
-      this.style.setProperty("--heading-font-size",this.fontSize);
     });
   }
 
@@ -98,7 +104,7 @@ export class SlimeHeader extends SimpleColors {
   firstUpdated(changedProperties) {
     if (super.firstUpdated) {
       super.firstUpdated(changedProperties);
-      this.style.setProperty("--heading-font-size",this.fontSize);     
+      this.style.setProperty("--heading-font-size",this.fontSize);    
     }
     
   }
@@ -111,21 +117,12 @@ export class SlimeHeader extends SimpleColors {
         <div class="header-content">
           <slime-icon class="header-icon" type="${this.type}" icon-width="30%" icon-height="auto"></slime-icon>
           <div class="header-text-box">
-          <h2>${this.heading}</h2>
           <h3>${this.subHeading}</h3>
+          <h2>${this.heading}</h2>
           </div>
         </div>
      `;
-
-
   }
-
-
-
-
-
-
-
   }
 
 

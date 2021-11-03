@@ -15,6 +15,7 @@ describe('LearningCard', () => {
     expect(h1.textContent).to.equal('cool');
   });
 
+  
   it('passes the a11y audit', async () => {
     await expect(element).shadowDom.to.be.accessible();
   });

@@ -22,10 +22,12 @@
   },
   "dependencies": {
     "@lrnwebcomponents/simple-colors": "^4.0.1",
+    
     "lit": "^2.0.0"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.15.6",
+    "@viable-slime/the-easy-button": "^0.0.2",
     "@custom-elements-manifest/analyzer": "^0.4.17",
     "@lrnwebcomponents/deduping-fix": "^4.0.0",
     "@lrnwebcomponents/grid-plate": "^4.0.1",

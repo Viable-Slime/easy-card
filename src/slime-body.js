@@ -1,14 +1,10 @@
-// dependencies / things imported
-import {css,html, LitElement} from 'lit';
+import {css,html,LitElement} from 'lit';
 
-
-export class SlimeBody extends LitElement {
+export class SlimeBody extends LitElement{
   static get tag() {
     return "slime-body";
   }
 
-
-  // CSS - specific to Lit
     static get styles() {
     return css`
         :host{
@@ -16,18 +12,35 @@ export class SlimeBody extends LitElement {
           border-color: black;
           border-style: solid;
           border-width: 1px;
-          height: auto;
-          min-height: 50px;
+          height: var(--toggle-height,auto);
           width: inherit;
+          padding: 2%;
+          overflow:hidden;
+        }
+
+        :host([toggle="true"]){
+
+          height: var(--toggle-height,auto);
+          max-height: var(--body-max-height,0px);
+          padding: var(--body-padding,0%);
+          border-bottom: var(--body-bottom-border,none);
+          transition: max-height 0.35s;
+         
+        }
+
+        .body-content{
+          padding-top: 1%;
+          padding-bottom: 1%;
+          width: 100%;
+          overflow: hidden;
         }
       `;
   }
 
-
-
   static get properties() {
     return {
       type: { type: String, reflect: true },
+      toggle: {type: Boolean},
     };
   }
 
@@ -36,56 +49,16 @@ export class SlimeBody extends LitElement {
   constructor() {
     super();
     this.type = "math";
-/*
-    var subContent = this.childNodes;
-    console.log(subContent);
-    for(var i = 0; i<subContent.length; i++){
-
-      this.shadowRoot.appendChild(subContent[i]);
-
-    }
-*/
-
-
+    this.toggle = false;
 }
 
-
-
-  // properties that you wish to use as data in HTML, CSS, and the updated life-cycle
-  // updated fires every time a property defined above changes
-  // this allows you to react to variables changing and use javascript to perform logic
-  updated(changedProperties) {
-    changedProperties.forEach((oldValue, propName) => {
-      if (propName === "type" && this[propName] === "science") {
-        this.myIcon = "beaker";
-      }
-    });
-  }
-
-
-  // Lit life-cycle; this fires the 1st time the element is rendered on the screen
-  // this is a sign it is safe to make calls to this.shadowRoot
-  firstUpdated(changedProperties) {
-    if (super.firstUpdated) {
-      super.firstUpdated(changedProperties);
-    }
-    
-  }
-
-
-
-  // HTML - specific to Lit
   render() {
     return html` 
         <div class="body-content">
         <slot></slot>
         </div>
-
      `;
-
-
   }
-
   }
 
 
