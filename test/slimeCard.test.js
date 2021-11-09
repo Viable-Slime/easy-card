@@ -17,7 +17,7 @@ describe('slime-card', () => {
     //console.log(element.shadowRoot.childNodes[2].childNodes[1].childNodes[1].shadowRoot.childNodes[2].childNodes[1].shadowRoot.childNodes[2].childNodes[1]);
     const img = element.shadowRoot.childNodes[2].childNodes[1].childNodes[1].shadowRoot.childNodes[2].childNodes[1].shadowRoot.childNodes[2].childNodes[1]
     expect(img).to.exist;
-    expect(img.getAttribute("src")).to.equal('http://localhost:8000/assets/beaker.svg');
+    expect(img.getAttribute("src")).to.contains('beaker.svg');
   });
 
   

@@ -31,7 +31,6 @@ export class SlimeIcon extends LitElement {
   static get properties() {
     return {
       type: { type: String, reflect: true },
-      icon_value: {type: Map},
       iconHeight: {type: String, attribute:"icon-height", reflect: true},
       iconWidth: {type: String, attribute:"icon-width", reflect: true},
     };
@@ -65,9 +64,11 @@ export class SlimeIcon extends LitElement {
   firstUpdated(changedProperties) {
     if (super.firstUpdated) {
       super.firstUpdated(changedProperties);
-      this.style.setProperty("--icon-height",this.iconHeight);
-      this.style.setProperty("--icon-width",this.iconWidth);
-      if(this.icon_value.get(this.type)==undefined){this.shadowRoot.getElementById("icon").setAttribute("src",this.icon_value.get("math"));}
+    }
+    this.style.setProperty("--icon-height",this.iconHeight);
+    this.style.setProperty("--icon-width",this.iconWidth);
+    if(this.icon_value.get(this.type)==undefined){
+      this.shadowRoot.getElementById("icon").setAttribute("src",this.icon_value.get("math"));
     }
   }
 
