@@ -17,7 +17,7 @@ describe('slime-icon', () => {
     //console.log(element.shadowRoot.childNodes[2].childNodes[1]);
     const imgTag = element.shadowRoot.childNodes[2].childNodes[1];
     expect(imgTag).to.exist;
-    expect(imgTag.getAttribute("src")).to.equal('http://localhost:8000/assets/lightbulb.svg');
+    expect(imgTag.getAttribute("src")).to.contains('lightbulb.svg');
     expect(imgTag.getAttribute("alt")).to.equal("learning card math icon");
   });
 

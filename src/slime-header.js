@@ -50,7 +50,7 @@ export class SlimeHeader extends SimpleColors {
           filter: brightness(80%);
         
         }       
-        }
+        
       `];
   }
 

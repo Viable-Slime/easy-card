@@ -37,7 +37,7 @@ export class SlimeCard extends LitElement {
       heading: {type: String, attribute:"heading", reflect: true},
       subHeading: {type: String, attribute:"sub-heading", reflect: true},
       toggle: {type: Boolean},
-      bodyTabIndex: {type: Number}
+      bodyTabIndex: {type: String, attribute: "body-tab-index"}
     };
   }
 
@@ -108,14 +108,12 @@ export class SlimeCard extends LitElement {
 
   // HTML - specific to Lit
   render() {
-
-    console.log(this.bodyTabIndex);
     return html` 
         <div class="slime-card-container">
         <div id="click-target" tabindex="0">
-        <slime-header class="header" toggle="${this.toggle}" type="${this.type}" heading="${this.heading}" sub-heading="${this.subHeading}" accent-color="${this.accentColor}"></slime-header>
+        <slime-header class="header" ?toggle="${this.toggle}" type="${this.type}" heading="${this.heading}" sub-heading="${this.subHeading}" accent-color="${this.accentColor}"></slime-header>
         </div>
-        <slime-body tabindex="${this.bodyTabIndex}" id="expand-target" class="slime-card-bottom" toggle="${this.toggle}"><slot></slot></slime-body>
+        <slime-body tabindex="${this.bodyTabIndex}" id="expand-target" class="slime-card-bottom" ?toggle="${this.toggle}"><slot></slot></slime-body>
         </div>`;
   }
 }
